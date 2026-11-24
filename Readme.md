@@ -21,7 +21,7 @@ J'ai eu des soucis avec l'installation (je veux dire les npm i sur les différen
 
 Je pense faire un projet d'affichage de cartes de personnages de Fire Emblem avec leurs statistiques appelées grâce à une API, en cliquant sur un bouton, on peut classer
 les personnages selon leur arme (épée, lance, magie, arc, etc) puis ensuite cliquer sur la carte du personnage qui nous intéresse pour qu'il s'affiche, et on peut observer ses
-différentes statistiques (Force, Vitesse, Défense, Charme, également leur classe, etc)
+différentes statistiques (Force, Vitesse, Défense, Résistance, Charme, également leur classe, etc)
 
 (J'aimerais aussi, si j'ai le temps mettre en place un système pour classer les personnages du meilleur au pire selon leurs statistiques totales)
 
