@@ -33,13 +33,20 @@ function App() {
 
       {characters.map((character) => (
         <p key={character.id}>
-          {character.name}
-          {character.weapon}
-          {character.strength}
-          {character.magic}
-          {character.speed}
-          {character.defense}
-          {character.resistance}
+          <h2>{character.name}</h2>
+          <li>
+            <img src={character.img_url} />
+          </li>
+
+          <ul>
+            <li>Arme : {character.weapon}</li>
+            <li>Force : {character.strength}</li>
+            <li>Magie : {character.magic}</li>
+            <li>Vitesse : {character.speed}</li>
+            <li>Défense : {character.defense}</li>
+            <li>Résistance : {character.resistance}</li>
+            <li>Charme : {character.charm}</li>
+          </ul>
         </p>
       ))}
     </div>
