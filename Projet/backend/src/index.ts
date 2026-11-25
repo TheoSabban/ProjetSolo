@@ -6,19 +6,31 @@ import { Pool } from "pg";
 config();
 const PORT = process.env.API_PORT;
 const app = express();
-const db = new Pool({
-  host: process.env.DB_HOST,
-  port: Number(process.env.DB_PORT),
-  user: process.env.DB_USER,
-  password: process.env.DB_PASSWORD,
-  database: process.env.DB_NAME,
-});
-
 app.use(cors());
 
+const db = new Pool({
+  host: process.env.PG_HOST,
+  port: Number(process.env.PG_PORT),
+  user: process.env.PG_USER,
+  password: process.env.PG_PASSWORD,
+  database: process.env.PG_DATABASE,
+});
+
+app.get("/", (req, res) => {
+  res.json({ msg: "Hello World!" });
+});
+
 app.get("/characters", async (req, res) => {
-  const { rows } = await db.query("SELECT * FROM characters");
+  const { rows } = await db.query("SELECT id,name FROM characters");
   res.json(rows);
+});
+
+app.get("/characters/:id", async (req, res) => {
+  const { rows } = await db.query(
+    "SELECT id, name, weapon, strength, magic, speed, defense, resistance, charm, img_url FROM characters WHERE id=$1",
+    [Number(req.params.id)],
+  );
+  res.json(rows[0]);
 });
 
 app.listen(PORT, () => {
