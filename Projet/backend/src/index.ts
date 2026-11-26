@@ -33,6 +33,10 @@ app.get("/characters/:id", async (req, res) => {
   res.json(rows[0]);
 });
 
+app.delete("/characters/:id", async (req, res) => {
+  await db.query("DELETE FROM characters WHERE id=$1", [Number(req.params.id)]);
+});
+
 app.listen(PORT, () => {
   console.log(`API available on http://localhost:${PORT} !`);
 });

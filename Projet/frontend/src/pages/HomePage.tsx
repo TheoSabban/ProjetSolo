@@ -1,17 +1,6 @@
 import { useEffect, useState } from "react";
-
-type Character = {
-  id: number;
-  name: string;
-  weapon: string;
-  strength: number;
-  magic: number;
-  speed: number;
-  defense: number;
-  resistance: number;
-  charm: number;
-  img_url: string;
-};
+import { Link } from "react-router";
+import type { Character } from "../types/Character";
 
 function HomePage() {
   const [characters, setCharacters] = useState<Character[]>([]);
@@ -33,7 +22,9 @@ function HomePage() {
 
       <ul>
         {characters.map((character) => (
-          <li key={character.id}>{character.name}</li>
+          <li key={character.id}>
+            <Link to={`/${character.id}`}>{character.name}</Link>
+          </li>
         ))}
       </ul>
     </div>

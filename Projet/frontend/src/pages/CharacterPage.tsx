@@ -1,22 +1,10 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
-
-type Character = {
-  id: number;
-  name: string;
-  weapon: string;
-  strength: number;
-  magic: number;
-  speed: number;
-  defense: number;
-  resistance: number;
-  charm: number;
-  img_url: string;
-};
+import type { Character } from "../types/Character";
 
 function CharacterPage() {
   const { id } = useParams();
-  const [character, setCharacter] = useState<Character>();
+  const [character, setCharacter] = useState<Character | null>(null);
 
   useEffect(() => {
     async function fetchData() {
@@ -29,10 +17,10 @@ function CharacterPage() {
     fetchData();
   }, []);
 
-  if (!character) return null;
+  if (!character) return <p>Chargement du personnage n°{id}...</p>;
 
   return (
-    <p>
+    <article>
       <h2>{character.name}</h2>
       <img src={character.img_url} alt={character.name} />
 
@@ -45,7 +33,7 @@ function CharacterPage() {
         <li>Résistance : {character.resistance}</li>
         <li>Charme : {character.charm}</li>
       </ul>
-    </p>
+    </article>
   );
 }
 

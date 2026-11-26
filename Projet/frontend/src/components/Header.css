@@ -1,0 +1,14 @@
+.header {
+  padding: 1.25rem 1.5rem;
+  background: linear-gradient(to right, var(--red), var(--blue));
+  text-align: center;
+}
+
+.header-title {
+  color: var(--white);
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: 1.8rem;
+  font-style: italic;
+  font-weight: bold;
+  text-decoration: none;
+}
