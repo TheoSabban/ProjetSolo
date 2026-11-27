@@ -21,7 +21,9 @@ app.get("/", (req, res) => {
 });
 
 app.get("/characters", async (req, res) => {
-  const { rows } = await db.query("SELECT id,name FROM characters");
+  const { rows } = await db.query(
+    "SELECT id, name, weapon, strength, magic, speed, defense, resistance, charm, img_url FROM characters",
+  );
   res.json(rows);
 });
 
